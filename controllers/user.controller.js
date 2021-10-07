@@ -20,12 +20,10 @@ module.exports = {
             const users = await readFile(pathDB);
             const id = users[users.length - 1].id + 1;
 
-            users.push({...req.body, id:id});
+            users.push({...req.body, id});
             await writeFile(pathDB,users);
             res.json(users);
-
     },
-
 
     deleteUser: async (req, res) => {
         const {user_id} = req.params;
@@ -37,7 +35,6 @@ module.exports = {
 
         res.json(newUsers);
     }
-
-}
+};
 
 
